@@ -1,18 +1,17 @@
 {
     "version": 2,
+    "framework": null,
     "functions": {
-      "api/index.php": {
-        "runtime": "vercel-php@0.6.0"
-      }
+      "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
       {
         "src": "/api/(.*)",
         "headers": {
+          "Access-Control-Allow-Credentials": "true",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-          "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-          "Access-Control-Allow-Credentials": "true"
+          "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
         },
         "dest": "/api/index.php"
       },
@@ -20,18 +19,30 @@
         "src": "/api/(.*)",
         "methods": ["OPTIONS"],
         "headers": {
+          "Access-Control-Allow-Credentials": "true",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-          "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-          "Access-Control-Allow-Credentials": "true"
+          "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
         },
+        "dest": "/api/index.php"
+      },
+      {
+        "src": "/(.*)",
         "dest": "/api/index.php"
       }
     ],
     "env": {
       "APP_ENV": "production",
-      "APP_DEBUG": "false",
-      "APP_URL": "https://yourprojectdomain.com"
+      "APP_DEBUG": "true",
+      "APP_URL": "https://yourprojectdomain.com",
+      "APP_CONFIG_CACHE": "/tmp/config.php",
+      "APP_EVENTS_CACHE": "/tmp/events.php",
+      "APP_PACKAGES_CACHE": "/tmp/packages.php",
+      "APP_ROUTES_CACHE": "/tmp/routes.php",
+      "APP_SERVICES_CACHE": "/tmp/services.php",
+      "VIEW_COMPILED_PATH": "/tmp",
+      "CACHE_DRIVER": "array",
+      "LOG_CHANNEL": "stderr",
+      "SESSION_DRIVER": "cookie"
     }
   }
-  
