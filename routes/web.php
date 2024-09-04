@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChatController;
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +50,8 @@ Route::get('/api/check-auth', [UserController::class, 'checkAuth']);
 Route::post('/api/logout', [UserController::class, 'logout']);
 Route::post('/api/user/activity', [UserController::class, 'updateActivity']);
 Route::get('/api/online-users', [UserController::class, 'getOnlineFriends']);
+
+Route::get('/api/users-fetch', function(){
+    $users = User::get();
+    return response()->json($users);
+});
