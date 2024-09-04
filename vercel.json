@@ -1,55 +1,28 @@
 {
   "version": 2,
+    "framework": null,
   "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
+      "api/index.php": { "runtime": "vercel-php@0.6.0" }
   },
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "headers": {
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-        "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-      },
-      "dest": "/api/index.php"
-    },
-    {
-      "src": "/api/(.*)",
-      "methods": ["OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-        "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-      },
-      "dest": "/api/index.php"
-    },
-    {
+  "routes": [{
       "src": "/(.*)",
-      "dest": "/public/index.php"
-    }
-  ],
+      "dest": "/api/index.php"
+  }],
   "env": {
-    "APP_ENV": "production",
-    "APP_DEBUG": "false",
-    "APP_URL": "https://yourprojectdomain.com",
-    "APP_CONFIG_CACHE": "/tmp/config.php",
-    "APP_EVENTS_CACHE": "/tmp/events.php",
-    "APP_PACKAGES_CACHE": "/tmp/packages.php",
-    "APP_ROUTES_CACHE": "/tmp/routes.php",
-    "APP_SERVICES_CACHE": "/tmp/services.php",
-    "VIEW_COMPILED_PATH": "/tmp",
-    "CACHE_DRIVER": "file",
-    "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "file",
-    "DB_CONNECTION": "mysql",
-    "DB_HOST": "your-database-host",
-    "DB_PORT": "3306",
-    "DB_DATABASE": "your-database-name",
-    "DB_USERNAME": "your-database-username",
-    "DB_PASSWORD": "your-database-password"
+      "APP_ENV": "production",
+      "APP_DEBUG": "true",
+      "APP_URL": "https://yourprojectdomain.com",
+      "APP_KEY": "base64:xdohmdOXlnfMbRoux8u4E3Ngm7eFYKdYnzdlLrnu6Ss=",
+
+      "APP_CONFIG_CACHE": "/tmp/config.php",
+      "APP_EVENTS_CACHE": "/tmp/events.php",
+      "APP_PACKAGES_CACHE": "/tmp/packages.php",
+      "APP_ROUTES_CACHE": "/tmp/routes.php",
+      "APP_SERVICES_CACHE": "/tmp/services.php",
+      "VIEW_COMPILED_PATH": "/tmp",
+
+      "CACHE_DRIVER": "array",
+      "LOG_CHANNEL": "stderr",
+      "SESSION_DRIVER": "cookie"
   }
 }
