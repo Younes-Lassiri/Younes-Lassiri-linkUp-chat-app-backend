@@ -1,36 +1,28 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/index.php",
-      "use": "vercel-php@0.6.0"
-    },
-    {
-      "src": "api/index.php",
-      "use": "vercel-php@0.6.0"
+  "framework": null,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.6.0"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/index.php"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
-  ],
+  },
+  "routes": [{
+    "src": "/(.*)",
+    "dest": "/api/index.php"
+  }],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
+    "APP_DEBUG": "true",
     "APP_URL": "https://yourprojectdomain.com",
-    "APP_KEY": "base64:xdohmdOXlnfMbRoux8u4E3Ngm7eFYKdYnzdlLrnu6Ss=",
-    "CACHE_DRIVER": "file",
-    "SESSION_DRIVER": "file",
-    "LOG_CHANNEL": "stderr",
-    "VIEW_COMPILED_PATH": "/tmp",
     "APP_CONFIG_CACHE": "/tmp/config.php",
+    "APP_EVENTS_CACHE": "/tmp/events.php",
+    "APP_PACKAGES_CACHE": "/tmp/packages.php",
     "APP_ROUTES_CACHE": "/tmp/routes.php",
-    "APP_SERVICES_CACHE": "/tmp/services.php"
+    "APP_SERVICES_CACHE": "/tmp/services.php",
+    "VIEW_COMPILED_PATH": "/tmp",
+    "CACHE_DRIVER": "array",
+    "LOG_CHANNEL": "stderr",
+    "SESSION_DRIVER": "cookie"
   }
 }
+
