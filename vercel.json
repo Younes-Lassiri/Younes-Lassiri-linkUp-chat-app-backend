@@ -1,28 +1,34 @@
 {
   "version": 2,
-    "framework": null,
-  "functions": {
-      "api/index.php": { "runtime": "vercel-php@0.6.0" }
-  },
-  "routes": [{
+  "builds": [
+    {
+      "src": "public/index.php",
+      "use": "vercel-php@0.6.0"
+    }
+  ],
+  "routes": [
+    {
       "src": "/(.*)",
-      "dest": "/api/index.php"
-  }],
+      "dest": "/public/index.php"
+    }
+  ],
   "env": {
-      "APP_ENV": "production",
-      "APP_DEBUG": "true",
-      "APP_URL": "https://yourprojectdomain.com",
-      "APP_KEY": "base64:xdohmdOXlnfMbRoux8u4E3Ngm7eFYKdYnzdlLrnu6Ss=",
-
-      "APP_CONFIG_CACHE": "/tmp/config.php",
-      "APP_EVENTS_CACHE": "/tmp/events.php",
-      "APP_PACKAGES_CACHE": "/tmp/packages.php",
-      "APP_ROUTES_CACHE": "/tmp/routes.php",
-      "APP_SERVICES_CACHE": "/tmp/services.php",
-      "VIEW_COMPILED_PATH": "/tmp",
-
-      "CACHE_DRIVER": "array",
-      "LOG_CHANNEL": "stderr",
-      "SESSION_DRIVER": "cookie"
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://yourprojectdomain.com",
+    "APP_KEY": "base64:xdohmdOXlnfMbRoux8u4E3Ngm7eFYKdYnzdlLrnu6Ss=",
+    "DB_CONNECTION": "mysql",
+    "DB_HOST": "@db_host",
+    "DB_PORT": "3306",
+    "DB_DATABASE": "@db_database",
+    "DB_USERNAME": "@db_username",
+    "DB_PASSWORD": "@db_password",
+    "CACHE_DRIVER": "file",
+    "SESSION_DRIVER": "file",
+    "LOG_CHANNEL": "stderr",
+    "VIEW_COMPILED_PATH": "/tmp",
+    "APP_CONFIG_CACHE": "/tmp/config.php",
+    "APP_ROUTES_CACHE": "/tmp/routes.php",
+    "APP_SERVICES_CACHE": "/tmp/services.php"
   }
 }
